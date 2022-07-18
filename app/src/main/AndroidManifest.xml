@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app7ub.movies">
+
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:extractNativeLibs="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Flex"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name="com.app7ub.movies.UPI"
+            android:exported="false" />
+        <activity
+            android:name="com.app7ub.movies.PaypalPaymentGatway"
+            android:exported="false" />
+        <activity
+            android:name="com.app7ub.movies.Razorpay_Payment_gatway"
+            android:exported="false" />
+        <activity
+            android:name="com.app7ub.movies.LiveTVSearch"
+            android:exported="true" />
+        <activity android:name="com.app7ub.movies.GenreDetails" />
+        <activity android:name="com.app7ub.movies.AllGenre" />
+        <activity android:name="com.app7ub.movies.Downloads" />
+        <activity android:name="com.app7ub.movies.PrivecyPolicy" />
+        <activity android:name="com.app7ub.movies.TermsAndConditions" />
+        <activity
+            android:name="com.app7ub.movies.YoutubeLivePlayer"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.app7ub.movies.InAppUpdate" />
+        <activity android:name="com.app7ub.movies.LiveTv" />
+        <activity
+            android:name="com.app7ub.movies.EmbedPlayer"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name="com.app7ub.movies.Player"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.app7ub.movies.SubscriptionDetails" />
+        <activity android:name="com.app7ub.movies.SubscriptionList" />
+        <activity android:name="com.app7ub.movies.Subscription" />
+        <activity android:name="com.app7ub.movies.Favorites" />
+        <activity android:name="com.app7ub.movies.WebSeriesDetails" />
+        <activity android:name="com.app7ub.movies.Maintenance" />
+        <activity android:name="com.app7ub.movies.WebView" />
+        <activity
+            android:name="com.app7ub.movies.TrailerPlayer"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name="com.app7ub.movies.MovieDetails" />
+        <activity android:name="com.app7ub.movies.LoginSignup" />
+        <activity android:name="com.app7ub.movies.Home" />
+        <activity
+            android:name="com.app7ub.movies.Splash"
+            android:exported="true">
+               <intent-filter>
+                   <action android:name="android.intent.action.MAIN" />
+
+                   <category android:name="android.intent.category.LAUNCHER" />
+               </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_application_id" />
+        <meta-data
+            android:name="com.startapp.sdk.APPLICATION_ID"
+            android:value="@string/startapp_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.adcolony.sdk.AdColonyAdViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="rzp.device_token.share" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/CheckoutTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <data
+                    android:host="rzp.io"
+                    android:scheme="io.rzp" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
